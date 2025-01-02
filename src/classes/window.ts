@@ -60,6 +60,11 @@ export class Window {
     return addon.getWindowTitle(this.id);
   }
 
+  getLayer(): number {
+    if (!addon) return;
+    return addon.getWindowLayer(this.id);
+  }
+
   getMonitor(): Monitor | EmptyMonitor {
     if (!addon || !addon.getMonitorFromWindow) return new EmptyMonitor();
     return new Monitor(addon.getMonitorFromWindow(this.id));

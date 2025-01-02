@@ -222,6 +222,21 @@ Napi::Object getWindowBounds(const Napi::CallbackInfo &info) {
   return Napi::Object::New(env);
 }
 
+Napi::Number getWindowLayer(const Napi::CallbackInfo &info) {
+  Napi::Env env{info.Env()};
+
+  int handle = info[0].As<Napi::Number>().Int32Value();
+
+  auto wInfo = getWindowInfo(handle);
+
+  if (wInfo) {
+    auto layer = wInfo[(id)kCGWindowLayer];
+    return Napi::Number::New(env, [layer intValue]);
+  }
+
+  return Napi::Number::New(env, 0);
+}
+
 Napi::Boolean setWindowBounds(const Napi::CallbackInfo &info) {
   Napi::Env env{info.Env()};
 
@@ -312,6 +327,8 @@ Napi::Object Init(Napi::Env env, Napi::Object exports) {
                 Napi::Function::New(env, setWindowBounds));
     exports.Set(Napi::String::New(env, "getWindowBounds"),
                 Napi::Function::New(env, getWindowBounds));
+    exports.Set(Napi::String::New(env, "getWindowLayer"),
+                Napi::Function::New(env, getWindowLayer));
     exports.Set(Napi::String::New(env, "getWindowTitle"),
                 Napi::Function::New(env, getWindowTitle));
     exports.Set(Napi::String::New(env, "initWindow"),
