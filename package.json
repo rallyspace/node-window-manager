@@ -1,5 +1,5 @@
 {
-  "name": "@rally/node-window-manager",
+  "name": "@rallyspace/node-window-manager",
   "version": "2.3.0",
   "description": "Manage windows in macOS, Windows and Linux",
   "main": "dist/index.js",
@@ -10,12 +10,11 @@
     "install": "npm run rebuild",
     "rebuild": "node-gyp rebuild",
     "rebuild-dev": "npm run rebuild -- --debug",
-    "prepublishOnly": "npm run rebuild",
     "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sentialx/node-window-manager.git"
+    "url": "git+https://github.com/rallyspace/node-window-manager.git"
   },
   "keywords": [
     "window-manager",
@@ -27,9 +26,9 @@
   "author": "sentialx",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sentialx/node-window-manager/issues"
+    "url": "https://github.com/rallyspace/node-window-manager/issues"
   },
-  "homepage": "https://github.com/sentialx/node-window-manager#readme",
+  "homepage": "https://github.com/rallyspace/node-window-manager#readme",
   "devDependencies": {
     "@types/node": "13.11.1",
     "node-gyp": "^6.1.0",
